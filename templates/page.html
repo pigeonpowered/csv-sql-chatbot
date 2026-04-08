@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Query Database</title>
+
+  <link rel="stylesheet" href="static/app.css">
+</head>
+
+<body>
+  {% block content %}
+
+  <div class="prose m-8 !max-w-full">
+    <h1>Querius Maximus - SQL Query Finder</h1>
+
+    <form action="/" method="post">
+      <label for="textbox">Enter your prompt:</label> <br />
+      <div><textarea class="rounded w-full" id="textbox" name="textbox" rows="3"></textarea>
+      </div>
+      <div class="text-right"><input type="submit" value="Submit" class="text-right bg-sky-500 focus:bg-sky-700 text-white rounded px-3 py-2">
+      </div>
+      </form>
+
+  <div id="history">
+    {% for question, answer in message %}
+    <div class="my-3 bg-sky-100 rounded p-4">{{ question }}</div>
+    <div class="ml-8 my-3 bg-sky-200 rounded py-2 px-4">{{ answer|safe }}</div>
+    {% endfor %}
+  </div>
+  </div>
+  </div>
+
+  {% endblock %}
+</body>
+
+</html>
